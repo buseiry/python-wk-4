@@ -1,22 +1,7 @@
 {
   "projects": {
-    "default": "your-project-id-here"
-  }
-}
     "default": "reading-streak"
   },
   "targets": {},
   "etags": {}
 }
-
-
-
-
-    "default": "reading-streak"
-  },
-  "targets": {},
-  "etags": {}
-}
-
-
-

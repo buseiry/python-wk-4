@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Group</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="nav">
+    <h1>📚 Reading Group</h1>
+    <nav>
+      <a href="./frontend/login.html">Log In</a>
+      <a href="./frontend/register.html">Sign Up</a>
+      <a href="./frontend/leaderboard.html">Leaderboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Join Our Reading Community</h2>
+      <p>Track your reading sessions, earn points, and compete with friends!</p>
+      
+      <div class="cta">
+        <button onclick="location.href='./frontend/register.html'">Get Started</button>
+        <button class="secondary" onclick="location.href='./frontend/login.html'">Log In</button>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-2">
+      <section class="card">
+        <h3>📖 Reading Sessions</h3>
+        <p>Start focused reading sessions and track your progress</p>
+      </section>
+      
+      <section class="card">
+        <h3>🏆 Points & Rewards</h3>
+        <p>Earn points for completed sessions and climb the leaderboard</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+  <script src="./firebase-config.js"></script>
+</body>
+</html>
