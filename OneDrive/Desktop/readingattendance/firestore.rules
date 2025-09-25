@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection
+    match /users/{userId} {
+      // Users can read and write their own data
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // Only Cloud Functions can update points and rank
+      allow update: if request.auth != null && 
+        request.auth.uid == userId &&
+        !('points' in request.resource.data.diff(resource.data)) &&
+        !('rank' in request.resource.data.diff(resource.data));
+    }
+    
+    // Sessions collection
+    match /sessions/{sessionId} {
+      // Users can create their own sessions
+      allow create: if request.auth != null && 
+        request.auth.uid == resource.data.userId &&
+        request.resource.data.keys().hasAll(['userId', 'startAt', 'completed']) &&
+        request.resource.data.completed == false;
+      
+      // Users can read their own sessions
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      
+      // Only Cloud Functions can update session completion and points
+      allow update: if false; // This will be handled by Cloud Functions
+    }
+    
+    // Payments collection
+    match /payments/{paymentId} {
+      // Users can read their own payments
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      
+      // Only Cloud Functions can create and update payments
+      allow create, update: if false; // This will be handled by Cloud Functions
+    }
+    
+    // Leaderboard collection (read-only for users)
+    match /leaderboard/{userId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only Cloud Functions can write
+    }
+    
+    // Admin collection (only for admin users)
+    match /admin/{document=**} {
+      allow read, write: if request.auth != null && 
+        request.auth.token.admin == true;
+    }
+  }
+}
+
+
+
+
+
+
+

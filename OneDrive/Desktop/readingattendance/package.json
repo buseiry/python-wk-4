@@ -1,0 +1,33 @@
+{
+  "name": "reading-attendance-tracker",
+  "version": "1.0.0",
+  "description": "A responsive web application for tracking reading attendance and points in real time",
+  "private": true,
+  "scripts": {
+    "dev": "firebase emulators:start",
+    "build": "cd functions && npm run build",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:functions": "firebase deploy --only functions",
+    "deploy:firestore": "firebase deploy --only firestore",
+    "test": "echo 'add tests in tests/' && exit 0",
+    "serve": "firebase serve",
+    "emulators": "firebase emulators:start"
+  },
+  "keywords": [
+    "reading",
+    "attendance",
+    "tracker",
+    "firebase",
+    "real-time",
+    "leaderboard"
+  ],
+  "author": "Reading Tracker Team",
+  "license": "MIT"
+}
+
+
+
+
+
+
