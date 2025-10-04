@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buseiry E-Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>📚 E-Learning Platform</h1>
+            <div class="user-section">
+                <span id="welcomeMsg">Welcome, Guest</span>
+                <button id="logoutBtn" class="btn-secondary" style="display:none;">Logout</button>
+                <a href="auth/login.html" id="loginLink" class="btn-secondary">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="courses-section">
+            <h2>Available Courses</h2>
+            <div id="coursesList" class="courses-grid">
+                <!-- Courses will be injected here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Course Detail Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="courseDetail">
+                <!-- Course details will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
